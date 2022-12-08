@@ -6,7 +6,6 @@ var firebaseConfig = {
   storageBucket: "peat-f2f94.appspot.com",
   messagingSenderId: "346964342472",
   appId: "1:346964342472:web:519a149657fd9e95c817fd",
-}
+};
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig)
-firebase.analytics();
+firebase.initializeApp(firebaseConfig);

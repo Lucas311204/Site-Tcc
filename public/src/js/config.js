@@ -9,3 +9,16 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+var var_lista = document.getElementById("div_lista")
+
+var dados=""
+
+var db = fireabaseRef = firebase.database().ref().child("reservas");
+db.on('child_added', function(snapshot){
+  var adicionado = snapshot.val();
+
+  dados = "<table>" + "<tr><td>"+adicionado+"</td></tr>" + dados;
+
+  var_lista.innerHTML = dados;
+})

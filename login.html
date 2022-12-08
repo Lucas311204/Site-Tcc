@@ -11,26 +11,28 @@
     />
     <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/cadastro.css" />
 
-    <title>Lista de Tarefas | Autenticação</title>
+    <title>Peat</title>
   </head>
   <body class="bg-light">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-10 offset-1 text-center mt-5 pb-4 text-primary">
-          <h1 class="h1">Autenticação</h1>
+        <div class="col-10 offset-1 text-center mt-5 pb-4 text-dark">
+          <h1 class="h1">Peat</h1>
         </div>
-        <div class="col-10 offset-1 bg-white shadow mb-5 border border-primary">
+        <div class="col-10 offset-1 bg-white shadow mb-5 border border-success">
           <div class="row">
             <div
               id="loginLogo"
-              class="col-6 p-4 bg-primary d-flex justify-content-center"
+              class="col-6 p-4 bg-success d-flex justify-content-center"
             >
-              <img src="./images/firebase_logo.png" alt="Logo Firebase" />
+              <img src="./images/logo3.png" alt="Logo Peat" />
             </div>
             <div class="col-6 p-5">
               <div id="loginForm">
-                <h2 class="h2 text-center text-dark mb-3">Acesso</h2>
+                <h2 class="h2 text-center text-dark mb-3">Acesso ao Peat</h2>
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input
@@ -51,16 +53,18 @@
                 </div>
                 <button
                   type="button"
-                  class="btn btn-outline-primary"
+                  class="btn btn-outline-success"
                   onclick="login()"
                 >
                   Login
                 </button>
                 <button
-                type="button"
-                class="btn btn-outline-primary"
-                onclick="trocaTelaCadastro()"
-                >Não tem Conta?</button>
+                  type="button"
+                  class="btn btn-outline-success"
+                  onclick="trocaTelaCadastro()"
+                >
+                  Não tem Conta?
+                </button>
               </div>
             </div>
           </div>
@@ -89,6 +93,6 @@
 
     <script src="./js/init.js"></script>
     <script src="./js/auth.js"></script>
-    <script src="./js/Tela.js"></script>    
+    <script src="./js/Tela.js"></script>
   </body>
 </html>

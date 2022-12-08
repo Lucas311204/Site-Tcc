@@ -13,6 +13,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: sans-serif;
+    
 }
 
 header {
@@ -99,4 +100,8 @@ footer {
 .fieldset__padrao input, .fieldset__padrao textarea {
     border-color: var(--cor-verde-claro);
     border-radius: 8px;
+}
+
+.btn btn-outline-primary{
+    color:rgb(0, 89, 45) !important;
 }

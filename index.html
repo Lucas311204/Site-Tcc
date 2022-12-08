@@ -12,18 +12,20 @@
     />
     <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 
-    <title>Lista de tarefas</title>
+    <title>Peat</title>
   </head>
   <body>
     <div id="page" class="d-flex">
       <div id="sidebar" class="bg-light border-right">
-        <header>My TodoList</header>
+        <header>Peat</header>
         <nav class="list-group list-group-flush">
           <a
             href="index.html"
             class="list-group-item list-group-item-action bg-light"
-            >Dashboard</a
+            >Tarefas</a
           >
           <a
             href="cadastro.html"
@@ -33,36 +35,16 @@
           <a
             href="cliente.html"
             class="list-group-item list-group-item-action bg-light"
-            >Clientes do Dia!</a
+            >Agendamentos</a
           >
-          <a
-            href="teste.html"
-            class="list-group-item list-group-item-action bg-light"
-            >Clientes</a
-          >
-          <a
-            href="update.html"
-            class="list-group-item list-group-item-action bg-light"
-            >Atualizações</a
-          >
-          <a
-            href="profile.html"
-            class="list-group-item list-group-item-action bg-light"
-            >Perfil</a
-          >
-          <a
-            href="#"
-            onclick="logout()"
-            class="list-group-item list-group-item-action bg-light"
-            >Sair</a
-          >
+          
         </nav>
       </div>
       <div id="page-content">
         <nav
           class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
         >
-          <button id="sidebar-toggle" class="btn btn-primary">Menu</button>
+          <button id="sidebar-toggle" class="btn btn-success">Menu</button>
           <button
             class="navbar-toggler"
             type="button"
@@ -76,9 +58,7 @@
           </button>
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto mt-2">
-              <li class="nav-item active">
-                <a href="index.html" class="nav-link">Home</a>
-              </li>
+             
               <li class="nav-item dropdown">
                 <a
                   id="navbarDropdown"
@@ -113,7 +93,7 @@
               type="text"
               placeholder="Nova tarefa"
             />
-            <button class="btn btn-primary ml-1" onclick="addTask()">
+            <button class="btn btn-success ml-1" onclick="addTask()">
               Adicionar
             </button>
           </div>

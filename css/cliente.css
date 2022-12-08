@@ -1,0 +1,14 @@
+*{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0;
+}
+th, td{
+    padding: 10px 15px;
+}
+button-cliente{
+    padding: 10px
+}
+    
