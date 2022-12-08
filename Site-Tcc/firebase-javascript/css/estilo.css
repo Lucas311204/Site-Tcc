@@ -1,0 +1,293 @@
+body {
+
+    background: linear-gradient(-45deg, #00fdd3, #4e9c89, #0f8181, #04ffc4);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+.box{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 15px;
+    width: 20%;
+}
+fieldset{
+    border: 3px solid rgb(37, 233, 174);
+}
+legend{
+    border: 1px solid rgb(9, 143, 98);
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(37, 233, 174);
+    border-radius: 8px;
+}
+.inputBox{
+    position: relative;
+}
+.inputUser{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.inputDescricao{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputDescricao:focus ~ .labelInput,
+.inputDescricao:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputBairro{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputBairro:focus ~ .labelInput,
+.inputBairro:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputCoordenadas{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputNumero{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputNumero:focus ~ .labelInput,
+.inputNumero:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputCidade{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputCidade:focus ~ .labelInput,
+.inputCidade:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputComplemento{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputComplemento:focus ~ .labelInput,
+.inputComplemento:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputCoordenadas{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputCoordenadas:focus ~ .labelInput,
+.inputCoordenadas:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputEstado{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputEstado:focus ~ .labelInput,
+.inputEstado:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputLogradouro{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputLogradouro:focus ~ .labelInput,
+.inputLogradouro:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.inputEndereco{
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 2px;
+}
+.inputEndereco ~ .labelInput,
+.inputEndereco:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+.labelInput{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+.inputUser:focus ~ .labelInput,
+.inputUser:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+#data_nascimento{
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+#submit{
+    background: linear-gradient(-45deg, #00fdd3, #4e9c89, #0f8181, #04ffc4);
+    animation: gradient 15s ease infinite;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+#submit:hover{
+    background-image: linear-gradient(to right,rgb(14, 61, 57), rgb(2, 247, 247));
+}
+        #picture__input {
+            display: none;
+          }
+        
+          .picture {
+            width: 200px;
+            height: 100px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            border: 2px dashed currentcolor;
+            cursor: pointer;
+            font-family: sans-serif;    
+            outline: none;
+            overflow: hidden;
+          }
+          
+          .picture:hover {
+            color: #777;
+            background: #ccc;
+          }
+          
+          .picture:active {
+            border-color: turquoise;
+            color: turquoise;
+            background: #eee;
+          }
+          
+          .picture:focus {
+            color: #777;
+            background: #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          }
+          
+          .picture__img {
+            max-width: 100%;
+          }
