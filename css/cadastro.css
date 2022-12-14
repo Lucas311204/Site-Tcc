@@ -1,19 +1,21 @@
-#form__cadastro {
-    width: 80%;
-    padding: 12px;
+#form__cadastro,
+#form__servico {
+  width: 80%;
+  padding: 12px;
 }
 
 #form__entradas {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-#form__entradas input, #form__entradas textarea {
-    margin-bottom: 12px;
-    padding: 8px;
+#form__entradas input,
+#form__entradas textarea {
+  margin-bottom: 12px;
+  padding: 8px;
 }
 
 #form__entradas button {
-    width: 200px;
-    padding: 8px;
+  width: 200px;
+  padding: 8px;
 }

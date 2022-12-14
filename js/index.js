@@ -9,6 +9,8 @@ function getUser() {
       readTasks();
       let userLabel = document.getElementById("navbarDropdown");
       userLabel.innerHTML = user.email;
+
+      document.cookie = user.uid;
     } else {
       swal
         .fire({

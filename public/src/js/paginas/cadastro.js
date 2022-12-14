@@ -1,5 +1,3 @@
-import { estabelecimento } from "../servicos/service.js";
-
 function getUser() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -36,7 +34,6 @@ form.addEventListener("submit", (event) => {
     bairro: form.bairro.value,
     descricao: form.descricao.value,
     valor: form.valor.value,
-    coordenadas: form.coordenadas.value,
     owner: currentUser.uid,
   };
   console.log(novoLugar);
@@ -44,6 +41,7 @@ form.addEventListener("submit", (event) => {
     .add(novoLugar)
 
     .then((docRef) => {
+      Object.Keys(firebase.auth().currentUser.uid)[0];
       form.reset();
       alert(`Cadastro do lugar seu estabelecimento ocorreu com sucesso!`);
     })

@@ -28,9 +28,9 @@ async function getUserInfo(uid) {
   const logUsers = await db.collection("profile").where("uid", "==", uid).get();
   let userInfo = document.getElementById("userInfo");
   if (logUsers.docs.length == 0) {
-    userInfo.innerHTML = "Perfil não registrado";
+    userInfo.innerHTML = "Estabelecimento não registrado";
   } else {
-    userInfo.innerHTML = "Perfil registrado";
+    userInfo.innerHTML = "Estabelecimento registrado";
     profile = true;
     const userData = logUsers.docs[0];
     currentUser.id = userData.id;
