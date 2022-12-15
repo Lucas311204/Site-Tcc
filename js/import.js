@@ -83,6 +83,12 @@ function resetForm() {
     alert("Estabelecimento Cadastrado!");
 }
 
+function resetFormServico() {
+  (document.getElementById("servico").value = ""),
+    (document.getElementById("preco").value = ""),
+    alert("Serviço Cadastrado!");
+}
+
 async function postEstabelecimento() {
   const userID = document.cookie;
   const requisicao = await fetch(
@@ -122,6 +128,35 @@ async function postEstabelecimento() {
   return resposta;
 }
 
+function dateTime(time) {
+  let unix_timestamp = time;
+  let convert = unix_timestamp; //<< se n me engano é assim
+
+  var date = new Date(convert);
+
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var year = date.getFullYear();
+
+  var hours = date.getUTCHours();
+  var minutes = "0" + date.getUTCMinutes();
+
+  dateString =
+    day +
+    "/" +
+    month +
+    "/" +
+    year +
+    " &nbsp;" +
+    hours +
+    ":" +
+    minutes.substr(-2) +
+    "h";
+
+  console.log(dateString);
+  return dateString;
+}
+
 async function getReservas() {
   idEst = document.querySelector("#est").value;
 
@@ -154,10 +189,11 @@ async function getReservas() {
       "</td><td>" +
       reserva.servicos[0].nome +
       "</td><td>" +
-      reserva.data_horario +
-      "</td><td><button class='btn btn-success'>Aceitar</button> &nbsp; <button class='btn btn-danger' onClick='" +
+      dateTime(reserva.data_horario) +
+      "</td><td><button class='btn btn-success'>Aceitar</button> &nbsp; <button class='btn btn-danger' onClick=" +
       deleteReserva(idEst, reserva.id) +
-      "'>Excluir</button></td></tr>";
+      ">Excluir</button></td></tr>";
+
     $("#showReserva").append(newItem);
   });
 
@@ -184,7 +220,10 @@ async function postServico(idEst) {
     }
   );
   const resposta = await requisicao.json();
+
   if (resposta) {
+    resetFormServico();
+    alert("Serviço cadastrado");
     return resposta;
   }
 }
@@ -255,14 +294,37 @@ function getUsuario(idUser) {
   return resposta; */
 }
 
+function Client() {
+  const clientID = document.querySelector("#clientID");
+  alert(getUsuario(clientID));
+}
+
 /* Lista Problemas:
 
+pra mim bugou tudo KKKKKKKKKKKK
 
 Deixar campos do formulário obrigatórios ----- Em andamento
 Puxar Reservas -- Ta puxando, falta exibir
+Amor do Lucas -> está arrumando a data ❤
 
 
 */
 /* 5OYouFBXBSUAVsM97t3I7NWxLEA3 id q colocamos dps */
 
 /* JDESczhtCmZm2veJq2kgOFsaAph2 id original*/
+
+/* 
+
+
+
+
+*/
+/* conversa  
+
+o app q demora pra carregar, sifuder
+
+
+
+
+
+*/
