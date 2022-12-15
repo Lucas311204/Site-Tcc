@@ -93,36 +93,31 @@
               <h3>Verifique seus agendamentos </h3>
               <hr>
               <form>
-              <input id="input-busca" type="text" class="form-control mt-3 mb-3" placeholder="O que você procura?">
-              <input id="input-data" type="date" class="form-control mt-3 mb-3" placeholder="O que você procura?"
-                value="2000-01-01" ;>
-              </form>
+                <label for="est">Estabelecimento</label>
+                <select name="" id="est"></select>
+              </form>              
 
-              <button class="btn btn-success" onclick="getEstabelecimento()">ASDASD</button>
+              <button class="btn btn-success" onclick="getReservas()">Buscar</button>
 
               <br>
               <hr>
               <br>
 
-              <table class="table">
+              <table class="table" style="text-align: center;">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
+                    <th scope="col">ID Usuário</th>
                     <th scope="col">Serviço</th>
                     <th scope="col">Data/Hora</th>
+                    <th scope="col">•</th>
                   </tr>
                 </thead>
                 <tbody id="showReserva">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
+                  
                 </tbody>
               </table>
-              
+
             </div>
 
         </body>
@@ -147,11 +142,13 @@
 <script src="./js/init.js"></script>
 <script src="./js/auth.js"></script>
 <script src="./js/import.js"></script>
+<script src="./js/index.js"></script>
 <script>
   $("#sidebar-toggle").click(function (e) {
     e.preventDefault()
     $("#page").toggleClass("toggled")
   })
+  showEst();
 </script>
 
 

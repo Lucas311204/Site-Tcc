@@ -1,60 +1,6 @@
-const db = firebase.firestore();
-
 function teste() {
-  alert(document.querySelector("#valor").value);
+  alert(document.querySelector("#est").value);
 }
-
-async function sendImage(estabelecimento_ID, image) {
-  const imagem = document.querySelector("#imagem").value;
-  const requisicao = await fetch(
-    `https://peat-api.onrender.com/estabelecimento/zOUtQC8p3oXQlE5q9uq0/imagens`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      body: image,
-    }
-  );
-  const resposta = await requisicao.text();
-
-  return resposta;
-}
-
-async function postEstabelecimento() {
-  const requisicao = await fetch(
-    "https://peat-api.onrender.com/estabelecimento",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: {
-          owner: document.cookie,
-          nome: document.querySelector("#nome").value,
-          descricao: document.querySelector("#descricao").value,
-          estado: document.querySelector("#estado").value,
-          cidade: document.querySelector("#cidade").value,
-          bairro: document.querySelector("#bairro").value,
-          logradouro: document.querySelector("#logradouro").value,
-          complemento: document.querySelector("#complemento").value,
-          coordenadas: {
-            lat: parseFloat(document.querySelector("#latitude").value),
-            long: parseFloat(document.querySelector("#longitude").value),
-          },
-          numero: parseInt(document.querySelector("#valor").value),
-        },
-      }),
-    }
-  );
-  const resposta = await requisicao.json();
-  console.log(resposta);
-  return resposta;
-  Object.Keys(firebase.auth().currentUser.uid)[0];
-  localStorage.setItem("docID", "id da doc");
-}
-/* Código Sem Api pra cadastro */
 
 async function getUser() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -78,140 +24,8 @@ async function getUser() {
   });
 }
 
-const service = document.querySelector("#form__servico");
-if (!!service) {
-  service.addEventListener("submit", (event) => {
-    showEst(document.cookie);
-  });
-}
-const form = document.querySelector("#form__cadastro");
-if (!!form) {
-  form.addEventListener("submit", (event) => {
-    getUser();
-    event.preventDefault();
-
-    let novoLugar = {
-      nome: form.nome.value,
-      cidade: form.cidade.value,
-      estado: form.estado.value,
-      logradouro: form.logradouro.value,
-      bairro: form.bairro.value,
-      descricao: form.descricao.value,
-      complemento: form.complemento.value,
-      coordenadas: {
-        lat: parseFloat(document.querySelector("#latitude").value),
-        long: parseFloat(document.querySelector("#longitude").value),
-      },
-      valor: form.valor.value,
-      owner: document.cookie,
-    };
-    console.log(novoLugar);
-
-    estabelecimento
-      .add(novoLugar)
-
-      .then((docRef) => {
-        Object.Keys(firebase.auth().currentUser.uid)[0]; //gerador de id
-        form.reset();
-        alert(`Cadastro do lugar seu estabelecimento ocorreu com sucesso!`);
-      })
-      .catch((error) => {
-        alert(`Cadastro do lugar não pode ser concluido`);
-        console.error("Error adding document: ", error);
-      });
-  });
-}
-/* Fim código sem api de cadastro */
-
-async function getReserva() {
-  var json = $.ajax({
-    url: "https://peat-api.onrender.com/estabelecimento/MCLOiq2lhnAXpENBZz4k/reserva",
-    async: true,
-    type: "GET",
-    success: function (response) {
-      return response;
-    },
-  });
-
-  return json;
-
-  /* const logEsts = await db
-    .collection("estabelecimento")
-    .where("owner", "==", document.cookie)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id);
-        //MCLOiq2lhnAXpENBZz4k
-        //pTXd6JIdMbSYhHaq9fQ
-
-        console.log(json.responseJSON);
-
-        /* var newItem = "a";
-        $("#est").append(newItem);
-      });
-    })
-    .catch((error) => {
-      console.log("Error getting documents: ", error);
-    }); */
-}
-
-getReserva();
-
-async function postServico() {
-  idEst = document.querySelector("#est").value;
-
-  const requisicao = await fetch(
-    "https://peat-api.onrender.com/estabelecimento/" + idEst + "/servico",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: {
-          nome: document.querySelector("#servico").value,
-          preco: document.querySelector("#preco").value,
-        },
-      }),
-    }
-  );
-  const resposta = await requisicao.json();
-  if (resposta) {
-    return resposta;
-  }
-}
-
-async function sendImage(estabelecimento_ID, image) {
-  const requisicao = await fetch(
-    `https://peat-api.onrender.com/estabelecimento/${estabelecimento_ID}/imagens`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      body: image,
-    }
-  );
-  const resposta = await requisicao.text();
-
-  return resposta;
-}
-
-function requestEst(estabelecimento) {
-  var json = $.ajax({
-    url: "https://peat-api.onrender.com/estabelecimento/" + estabelecimento,
-    async: false,
-    type: "GET",
-    success: function (response) {
-      return response;
-    },
-  });
-
-  return json.responseJSON.nome;
-}
-
 async function showEst(userID) {
+  userID = document.cookie;
   const logEsts = await db
     .collection("estabelecimento")
     .where("owner", "==", document.cookie)
@@ -231,64 +45,224 @@ async function showEst(userID) {
   return logEsts;
 }
 
-/* const db = firebase.firestore();
-let currentUser = {};
-let profile = false;
+async function sendImage(idEst) {
+  console.log($("input[name=file]"));
+  const userID = document.cookie;
+  var formData = new FormData();
+  formData.append(
+    "pictures",
+    document.querySelector("input[id='fileInput']").files[0]
+  );
 
-function getUser() {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      currentUser.uid = user.uid;
-      getUserInfo(user.uid);
-      let userLabel = document.getElementById("navbarDropdown");
-      userLabel.innerHTML = user.email;
-    } else {
-      swal
-        .fire({
-          icon: "success",
-          title: "Redirecionando para a tela de autenticação",
-        })
-        .then(() => {
-          setTimeout(() => {
-            window.location.replace("login.html");
-          }, 1000);
-        });
-    }
+  $.ajax({
+    url: "https://peat-api.onrender.com/estabelecimento/" + idEst + "/imagens",
+    type: "POST",
+    Authorization: userID,
+    data: formData,
+    processData: false,
+    contentType: false,
+    enctype: "multipart/form-data",
+    success: function (data) {
+      console.log(data);
+    },
   });
 }
 
-async function getUserInfo(uid) {
-  const logUsers = await db.collection("profile").where("uid", "==", uid).get();
-  let userInfo = document.getElementById("userInfo");
-  if (logUsers.docs.length == 0) {
-    userInfo.innerHTML = "Estabelecimento não registrado";
-  } else {
-    userInfo.innerHTML = "Estabelecimento registrado";
-    profile = true;
-    const userData = logUsers.docs[0];
-    currentUser.id = userData.id;
-    currentUser.firstName = userData.data().firstName;
-    currentUser.lastName = userData.data().lastName;
-    document.getElementById("inputFirstName").value = currentUser.firstName;
-    document.getElementById("inputLastName").value = currentUser.lastName;
+function resetForm() {
+  (document.getElementById("nome").value = ""),
+    (document.getElementById("descricao").value = ""),
+    (document.getElementById("logradouro").value = ""),
+    (document.getElementById("estado").value = ""),
+    (document.getElementById("cidade").value = ""),
+    (document.getElementById("bairro").value = ""),
+    (document.getElementById("complemento").value = ""),
+    (document.getElementById("latitude").value = ""),
+    (document.getElementById("longitude").value = ""),
+    (document.getElementById("valor").value = ""),
+    (document.getElementById("fileInput").value = ""),
+    alert("Estabelecimento Cadastrado!");
+}
+
+async function postEstabelecimento() {
+  const userID = document.cookie;
+  const requisicao = await fetch(
+    "https://peat-api.onrender.com/estabelecimento",
+    {
+      method: "POST",
+      headers: {
+        Authorization: userID,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          owner: document.cookie,
+          nome: document.querySelector("#nome").value,
+          descricao: document.querySelector("#descricao").value,
+          estado: document.querySelector("#estado").value,
+          cidade: document.querySelector("#cidade").value,
+          bairro: document.querySelector("#bairro").value,
+          logradouro: document.querySelector("#logradouro").value,
+          complemento: document.querySelector("#complemento").value,
+          coordenadas: {
+            lat: parseFloat(document.querySelector("#latitude").value),
+            long: parseFloat(document.querySelector("#longitude").value),
+          },
+          numero: parseInt(document.querySelector("#valor").value),
+        },
+      }),
+    }
+  );
+  const resposta = await requisicao.json();
+
+  console.log(resposta.id); //esse aq pega só o id
+
+  sendImage(resposta.id);
+
+  resetForm();
+  return resposta;
+}
+
+async function getReservas() {
+  idEst = document.querySelector("#est").value;
+
+  const userID = document.cookie;
+  const requisicao = await fetch(
+    "https://peat-api.onrender.com/estabelecimento/" + idEst + "/reserva",
+    {
+      method: "GET",
+      headers: {
+        Authorization: userID,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const resposta = await requisicao.json();
+
+  console.log(resposta);
+  const idCliente = resposta.id_usuario;
+
+  $("#showReserva").empty();
+
+  resposta.forEach(function (reserva, i) {
+    console.log("[forEach]", reserva, i);
+
+    var newItem =
+      "<tr><th scope='row'>" +
+      (i + 1) +
+      "</th><td>" +
+      reserva.id_usuario +
+      "</td><td>" +
+      reserva.servicos[0].nome +
+      "</td><td>" +
+      reserva.data_horario +
+      "</td><td><button class='btn btn-success'>Aceitar</button> &nbsp; <button class='btn btn-danger' onClick='" +
+      deleteReserva(idEst, reserva.id) +
+      "'>Excluir</button></td></tr>";
+    $("#showReserva").append(newItem);
+  });
+
+  return resposta;
+}
+
+async function postServico(idEst) {
+  idEst = document.querySelector("#est").value;
+
+  const requisicao = await fetch(
+    "https://peat-api.onrender.com/estabelecimento/" + idEst + "/servico",
+    {
+      method: "POST",
+      headers: {
+        uid: document.cookie,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          nome: document.querySelector("#servico").value,
+          preco: parseInt(document.querySelector("#preco").value),
+        },
+      }),
+    }
+  );
+  const resposta = await requisicao.json();
+  if (resposta) {
+    return resposta;
   }
 }
 
-async function saveProfile() {
-  const firstName = document.getElementById("inputFirstName").value;
-  const lastName = document.getElementById("inputLastName").value;
-  if (!profile) {
-    await db.collection("profile").add({
-      uid: currentUser.uid,
-      firstName: firstName,
-      lastName: lastName,
-    });
-    getUserInfo(currentUser.uid);
-  } else {
-    await db.collection("profile").doc(currentUser.id).update({
-      firstName: firstName,
-      lastName: lastName,
-    });
+function requestEst(estabelecimento) {
+  const userID = document.cookie;
+  var json = $.ajax({
+    Authorization: userID,
+    url: "https://peat-api.onrender.com/estabelecimento/" + estabelecimento,
+    async: false,
+    type: "GET",
+    success: function (response) {
+      return response;
+    },
+  });
+
+  return json.responseJSON.nome;
+}
+
+async function deleteReserva(idEst, idReserva) {
+  const userID = document.cookie;
+  const requisicao = await fetch(
+    "https://peat-api.onrender.com/estabelecimento/" +
+      idEst +
+      "/reserva/" +
+      idReserva,
+    {
+      method: "delete",
+      headers: {
+        Authorization: userID,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const resposta = await requisicao.json();
+  if (resposta) {
+    return resposta;
   }
 }
- */
+
+function getUsuario(idUser) {
+  const userID = document.cookie;
+
+  var json = $.ajax({
+    url: "https://peat-api.onrender.com/usuario/" + idUser,
+    async: false,
+    type: "GET",
+    success: function (response) {
+      return response;
+    },
+  });
+
+  return json;
+
+  /* const requisicao = await fetch(
+    "https://peat-api.onrender.com/usuario/" + idUser,
+    {
+      method: "GET",
+      headers: {
+        Authorization: userID,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const resposta = await requisicao.json();
+  console.log(resposta.nome_completo);
+  const nome = resposta.nome_completo;
+  return resposta; */
+}
+
+/* Lista Problemas:
+
+
+Deixar campos do formulário obrigatórios ----- Em andamento
+Puxar Reservas -- Ta puxando, falta exibir
+
+
+*/
+/* 5OYouFBXBSUAVsM97t3I7NWxLEA3 id q colocamos dps */
+
+/* JDESczhtCmZm2veJq2kgOFsaAph2 id original*/

@@ -92,7 +92,7 @@
               <legend>Cadastro de Serviço</legend>
 
               <label for="est">Estabelecimento</label>
-              <select name="" id="est"></select>
+              <select name="est" id="est"></select>
 
               <label for="servico">Serviço</label>
               <input type="text" id="servico" name="servico" />
@@ -101,10 +101,13 @@
               <input type="number" id="preco" name="preco" />
 
               <div>
-                <button class="botao__primario" onclick="postServico()">
+                <button
+                  class="botao__primario"
+                  type="button"
+                  onclick="postServico()"
+                >
                   Salvar
                 </button>
-                <button type="button" onclick="postServico()">Salvar2</button>
               </div>
             </fieldset>
           </form>
@@ -131,11 +134,13 @@
     <script src="./js/init.js"></script>
     <script src="./js/auth.js"></script>
     <script src="./js/import.js"></script>
+    <script src="./js/index.js"></script>
     <script>
       $("#sidebar-toggle").click(function (e) {
         e.preventDefault();
         $("#page").toggleClass("toggled");
       });
+      showEst();
     </script>
   </body>
 </html>
