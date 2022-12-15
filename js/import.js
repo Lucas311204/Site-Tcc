@@ -120,7 +120,7 @@ async function postEstabelecimento() {
   );
   const resposta = await requisicao.json();
 
-  console.log(resposta.id); //esse aq pega só o id
+  console.log(resposta.id);
 
   sendImage(resposta.id);
 
@@ -130,7 +130,7 @@ async function postEstabelecimento() {
 
 function dateTime(time) {
   let unix_timestamp = time;
-  let convert = unix_timestamp; //<< se n me engano é assim
+  let convert = unix_timestamp;
 
   var date = new Date(convert);
 
@@ -298,33 +298,3 @@ function Client() {
   const clientID = document.querySelector("#clientID");
   alert(getUsuario(clientID));
 }
-
-/* Lista Problemas:
-
-pra mim bugou tudo KKKKKKKKKKKK
-
-Deixar campos do formulário obrigatórios ----- Em andamento
-Puxar Reservas -- Ta puxando, falta exibir
-Amor do Lucas -> está arrumando a data ❤
-
-
-*/
-/* 5OYouFBXBSUAVsM97t3I7NWxLEA3 id q colocamos dps */
-
-/* JDESczhtCmZm2veJq2kgOFsaAph2 id original*/
-
-/* 
-
-
-
-
-*/
-/* conversa  
-
-o app q demora pra carregar, sifuder
-
-
-
-
-
-*/
